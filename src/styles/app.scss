@@ -1,0 +1,320 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Quicksand", "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fbfbfb;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+div,
+a,
+button,
+section,
+main,
+p,
+article {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+.app {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*********************************************** 顶部导航 ************************************/
+.navbar {
+  width: 100%;
+  background-color: #fff;
+  height: 4rem;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: grey;
+  svg {
+    font-size: 1.8rem;
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    .collapse-btn {
+      cursor: pointer;
+    }
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    .avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      svg {
+        font-size: 1rem;
+      }
+    }
+    .logout {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-left: 1px solid #e0e0e0;
+      padding-left: 1rem;
+      svg {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+/*********************************************** 左侧菜单 ************************************/
+.sidebar {
+  left: 0;
+  width: 12vw;
+  height: 100vh;
+  background-color: #001529;
+  color: grey;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: font-size 0.2s, width 0.3s;
+    svg {
+      font-size: 2rem;
+    }
+  }
+}
+.sidebar-phone-fold {
+  width: 0;
+  opacity: 0;
+  height: 0;
+}
+.sidebar-phone-unfold {
+  width: 100vw;
+  opacity: 1;
+  height: auto;
+}
+/********************************************* ant design **********************************/
+.ant-table {
+  overflow-x: auto;
+}
+.ant-card {
+  height: 100%;
+}
+/* 超小设备 (手机, 600px 以下屏幕设备) */
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 10px;
+  }
+  .app {
+    flex-direction: column;
+  }
+  main {
+    width: 100vw;
+    height: 100%;
+  }
+  .navbar {
+    margin-left:0;
+    width: 100%;
+  }
+  .title-cards .card {
+    .content {
+      width: 20rem;
+    }
+  }
+  .charts {
+    grid-template-columns: 100%;
+  }
+  .users .user-item {
+    width: 100%;
+    .avatar {
+      width: 12rem;
+      height: auto;
+    }
+    .user-profile {
+      width: 100%;
+    }
+  }
+}
+
+/* 小设备 (平板电脑和大型手机，600 像素及以上) */
+@media screen and (min-width: 600px) {
+  html {
+    font-size: 10px;
+  }
+  .app {
+    flex-direction: column;
+  }
+  main {
+    width: 100vw;
+    height: 100%;
+  }
+  .navbar {
+    margin-left:0;
+    width: 100%;
+  }
+  main {
+    width: 100vw;
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .title-cards .card {
+    .content {
+      width: 20rem;
+    }
+  }
+  .charts {
+    grid-template-columns: 100%;
+  }
+  .users {
+    grid-template-columns: auto auto;
+    .user-item {
+      .avatar {
+        width: 30%;
+      }
+    }
+  }
+}
+
+/* 中型设备（平板电脑，768 像素及以上） */
+@media screen and (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    height: 100vh;
+  }
+  .sidebar, .navbar {
+    opacity: 1;
+  }
+  .side-fold {
+    width: 80px;
+    .title svg {
+      font-size: 2.5rem;
+    }
+  }
+  .side-unfold {
+    width: 20vw;
+  }
+  main {
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .main-fold {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+  }
+  .main-unfold {
+    margin-left: 20vw;
+    width: calc(100% - 20vw);
+  }
+  .title-cards .card {
+    .content {
+      width: 20rem;
+    }
+  }
+  .charts {
+    grid-template-columns: 100%;
+  }
+  .users .user-item {
+    width: 100%;
+    .user-profile {
+      width: 70%;
+    }
+  }
+}
+
+/* 大型设备（笔记本电脑/台式机，992 像素及以上） */
+@media screen and (min-width: 992px) {
+  html {
+    font-size: 10px;
+  }
+  .side-fold {
+    width: 80px;
+    .title svg {
+      font-size: 2.5rem;
+    }
+  }
+  .side-unfold {
+    width: 20vw;
+  }
+  .main-fold {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+  }
+  .main-unfold {
+    margin-left: 20vw;
+    width: calc(100% - 20vw);
+  }
+  .title-cards .card {
+    .content {
+      width: auto;
+    }
+  }
+  .charts {
+    grid-template-columns: 60% 38%;
+  }
+  .users .user-item {
+    width: 100%;
+    .avatar {
+      width: 30%;
+      height: auto;
+    }
+    .user-profile {
+      width: 60%;
+    }
+  }
+}
+
+/* 超大型设备（大型笔记本电脑和台式机，1200 像素及以上） */
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+  .side-fold {
+    width: 80px;
+    .title svg {
+      font-size: 2.5rem;
+    }
+  }
+  .side-unfold {
+    width: 12vw;
+  }
+  .main-fold {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+  }
+  .main-unfold {
+    margin-left: 12vw;
+    width: calc(100% - 12vw);
+  }
+  .title-cards .card {
+    gap: 3rem;
+  }
+}
