@@ -5,10 +5,7 @@ https://www.doupir.com/2022/169566.html
 
 ## 项目目录结构
 ```
-|--|-build （打包输出目录，npm run build后才有）
-|--|-node_module （nodejs模块，npm install后才有）
 |--|-public （公共文件，包括logo、模板文件index.html等）
-|
 |--|-src （开发目录）
 |   |-------apis（请求文件）
 |   |-------assets（公共文件，例如图片等）
@@ -22,10 +19,13 @@ https://www.doupir.com/2022/169566.html
 |   |-------App.jsx （react入口组件）
 |   |-------index.js（入口文件）
 |
-|--|-.gitignore （nodejs模块）
-|--|-package.json （npm 配置文件）
+|--|-build （打包输出目录，npm run build后才有）
+|--|-node_module （nodejs模块，npm install后才有）
+|
 |--|-.env.development （开发环境 配置文件）
 |--|-.env.production （生产环境 配置文件）
+|--|-.gitignore （git忽略文件）
+|--|-package.json （npm 配置文件）
 ```
 ## 项目启动
 
