@@ -13,10 +13,10 @@ const columns = [
   },
   {
     title: "名称",
-    dataIndex: "title",
+    dataIndex: "name",
     width: 200,
     ellipsis: true,
-    key: "title",
+    key: "name",
   },
   {
     title: "封面",
@@ -42,9 +42,9 @@ const columns = [
   },
   {
     title: "销量",
-    dataIndex: "sales",
+    dataIndex: "quantity",
     width: 100,
-    key: "sales",
+    key: "quantity",
   },
   {
     title: "上传人",
@@ -128,10 +128,7 @@ export default function CourseTable(props) {
           position: ["bottomCenter"],
         }}
       />
-      <div style={{ position: "absolute", bottom: "30px", left: "30px" }}>
-        <Checkbox>全选</Checkbox>
-        <Button type="link">批量导出</Button>
-      </div>
+      <Button type="link">批量导出</Button>
     </Card>
   );
 }

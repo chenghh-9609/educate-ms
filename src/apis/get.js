@@ -9,7 +9,7 @@ export function getCourseList() {
 }
 
 export function getOrderList() {
-  return defaultAPI("/getorderlist");
+  return defaultAPI("/getallorders");
 }
 
 export function getRefundList() {

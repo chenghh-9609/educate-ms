@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   Form,
@@ -8,13 +8,24 @@ import {
   Radio,
   Upload,
   Space,
+  message,
 } from "antd";
 import { AiOutlinePlus } from "react-icons/ai";
+import { createCourse } from "../../../apis/post";
 const { TextArea } = Input;
-export default function add() {
-  const onFinish = (values) => console.log(values);
+const { messageApi, contextHolder } = message;
+export default function CourseAdd() {
+  const [fileList, setFileList] = useState([]);
+  const handleChange = ({ fileList: newFileList }) => setFileList(newFileList);
+  const onFinish = async (values) => {
+    const { cover } = values;
+    values.cover = cover.file.originFileObj;
+    const res = await createCourse(values);
+    messageApi.open({ type: "success", content: "添加课程成功！" });
+  };
   return (
     <Card>
+      {contextHolder}
       <p style={{ marginBottom: "1rem", color: "grey" }}>请输入课程相关信息</p>
       <Form
         layout="horizontal"
@@ -23,24 +34,29 @@ export default function add() {
         onFinish={onFinish}
         size="large"
       >
-        <Form.Item label="课程名称" name="courseName">
+        <Form.Item label="课程名称" name="name">
           <Input placeholder="请输入课程名称"></Input>
         </Form.Item>
         <Form.Item label="封面图片" name="cover">
-          <Upload listType="picture-card">
+          <Upload
+            listType="picture-card"
+            fileList={fileList}
+            maxCount={1}
+            onChange={handleChange}
+          >
             <div>
               <AiOutlinePlus />
               <div style={{ marginTop: 8 }}>上传照片</div>
             </div>
           </Upload>
         </Form.Item>
-        <Form.Item label="商品限制" name="priceRestrict">
+        <Form.Item label="商品限制" name="status">
           <Radio.Group>
-            <Radio value="on">上架</Radio>
-            <Radio value="off">下架</Radio>
+            <Radio value="上架">上架</Radio>
+            <Radio value="下架">下架</Radio>
           </Radio.Group>
         </Form.Item>
-        <Form.Item label="课程价格" name="coursePrice">
+        <Form.Item label="课程价格" name="price">
           <InputNumber
             min={1}
             placeholder="请输入金额"
@@ -54,7 +70,7 @@ export default function add() {
         <Form.Item label="讲师介绍" name="teacherDesc">
           <TextArea placeholder="请输入内容" rows={4}></TextArea>
         </Form.Item>
-        <Form.Item label="课程目录" name="courseCatalog">
+        <Form.Item label="课程目录" name="courseContent">
           <Input placeholder="请输入目录以“逗号”隔开"></Input>
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 2, span: 14 }}>

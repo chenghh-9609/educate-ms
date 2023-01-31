@@ -85,7 +85,7 @@ export default function RefundTable(props) {
       setData(res.data);
     }
     fetchData();
-  },[]);
+  }, []);
   const setIsDetail = (record) => {
     props.setIsDetail(record);
   };
@@ -103,8 +103,7 @@ export default function RefundTable(props) {
           position: ["bottomCenter"],
         }}
       />
-      <div style={{ position: "absolute", bottom: "30px", left: "30px" }}>
-        <Checkbox>全选</Checkbox>
+      <div>
         <Button type="link">批量导出</Button>
       </div>
     </Card>

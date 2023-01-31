@@ -228,11 +228,9 @@ for (let index = 0; index < COUNT; index++) {
       id: Random.guid(),
       username: Random.cname(),
       "phonenumber|1": Random.phone(),
-      coursename: Random.ctitle(),
-      "status|1": ["待支付", "已支付", "已取消"],
       "amount|1": [120, 180, 90, 200],
       time: Random.datetime(),
-      number: [10, 20, 15],
+      quantity: [10, 20, 15],
       disable: Random.boolean(),
     })
   );

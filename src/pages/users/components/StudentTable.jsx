@@ -33,8 +33,8 @@ const columns = [
   },
   {
     title: "订单数量",
-    dataIndex: "number",
-    key: "number",
+    dataIndex: "quantity",
+    key: "quantity",
     width: 80,
     ellipsis: true,
   },
@@ -107,8 +107,7 @@ export default function StudentTable(props) {
           position: ["bottomCenter"],
         }}
       />
-      <div style={{ position: "absolute", bottom: "30px", left: "30px" }}>
-        <Checkbox>全选</Checkbox>
+      <div>
         <Button type="link">批量导出</Button>
       </div>
     </Card>

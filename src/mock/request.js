@@ -27,7 +27,7 @@ export default [
     },
   },
   {
-    url: `${url}/api/getorderlist`,
+    url: `${url}/api/getallorders`,
     method: "get",
     respond: function (options) {
       return { status: 200, data: orderList };
