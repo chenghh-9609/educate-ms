@@ -4,8 +4,9 @@
 https://www.doupir.com/2022/169566.html
 
 ## 项目目录结构
-|--|-build （打包输出目录）
-|--|-node_module （nodejs模块）
+```
+|--|-build （打包输出目录，npm run build后才有）
+|--|-node_module （nodejs模块，npm install后才有）
 |--|-public （公共文件，包括logo、模板文件index.html等）
 |
 |--|-src （开发目录）
@@ -25,7 +26,7 @@ https://www.doupir.com/2022/169566.html
 |--|-package.json （npm 配置文件）
 |--|-.env.development （开发环境 配置文件）
 |--|-.env.production （生产环境 配置文件）
-
+```
 ## 项目启动
 
 1. git clone https://github.com/chenghh-9609/educate-ms-react.git
